@@ -1,5 +1,5 @@
 {
-    "run_name": "Run II (PathMNIST)",
+    "run_name": "Run PathMNIST",
     "dataset": "PathMNIST",
     "federated_setup": {
         "aggregator": "FedOpt",
@@ -17,9 +17,13 @@
         "pretrained": false
     },
     "sattler": {
-        "eps1": 12,
-        "eps2": 60,
+        "eps1": 12.00,
+        "eps2": 60.00,
         "round_cooldown": 40
+    },
+    "briggs": {
+        "distance_threshold": 0.05,
+        "clustering_round": 20
     },
     "notes": ""
 }

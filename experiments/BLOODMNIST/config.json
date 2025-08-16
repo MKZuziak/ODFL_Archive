@@ -1,24 +1,25 @@
 {
-    "run_name": "Run MNIST",
-    "dataset": "MNIST",
+    "run_name": "Run BloodMNIST",
+    "dataset": "BloodMNIST",
     "federated_setup": {
         "aggregator": "FedOpt",
         "global_learning_rate": 1.0,
-        "local_optimizer": "SGD",
-        "local_learning_rate": 0.01,
-        "batch_size": 32,
-        "iterations": 50,
+        "local_optimizer": "Adam",
+        "local_learning_rate": 1e-6,
+        "batch_size": 128,
+        "weight_decay": 0.01,
+        "iterations": 75,
         "local_epochs_per_iteration": 3,
         "scheduler": false
     },
     "model": {
-        "architecture": "Mnist Expanded CNN (custom)",
+        "architecture": "ResNet34 (Resized)",
         "pretrained": false
     },
     "sattler": {
-        "eps1": 0.35,
-        "eps2": 1.00,
-        "round_cooldown": 30
+        "eps1": 38.00,
+        "eps2": 188.00,
+        "round_cooldown": 40
     },
     "briggs": {
         "distance_threshold": 0.05,

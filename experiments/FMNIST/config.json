@@ -16,8 +16,8 @@
         "pretrained": false
     },
     "sattler": {
-        "eps1": 25,
-        "eps2": 125,
+        "eps1": 0.35,
+        "eps2": 1.00,
         "round_cooldown": 40
     },
     "briggs": {

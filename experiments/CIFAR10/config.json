@@ -1,5 +1,5 @@
 {
-    "run_name": "Run I (CIFAR10)",
+    "run_name": "Run CIFAR10",
     "dataset": "CIFAR10",
     "federated_setup": {
         "aggregator": "FedOpt",
@@ -12,17 +12,16 @@
         "scheduler": false
     },
     "model": {
-        "architecture": "Timm ResNet34",
+        "architecture": "ResNet34 (Resized)",
         "pretrained": false
     },
     "sattler": {
-        "eps1": 39817,
-        "eps2": 210325,
-        "round_cooldown": 10
+        "eps1": 185.00,
+        "eps2": 925.00,
+        "round_cooldown": 20
     },
     "briggs": {
         "distance_threshold": 0.05,
         "clustering_round": 20
-    },
-    "notes": "Here, the Sattler's EPS1 and EPS2 values are high due to exploding gradient (LR may be to large)."
+    }
 }
