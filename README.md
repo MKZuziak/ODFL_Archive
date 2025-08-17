@@ -1,6 +1,6 @@
 # ODFL_Archive
 
-The following repository contains a complete archive of results - including those reported in the original paper titled One-Shot Clustering for Federated Learning Under Clustering-Agnostic Assumption.  
+The following repository contains a complete archive of results - including those reported in the original paper titled One-Shot Clustering for Federated Learning Under Clustering-Agnostic Assumption.  
 The results archived here include experiment outputs (metrics, clustering logs, explanation quality), figure-generation notebooks, and helper analysis code used for the final submission.
 
 ## Directory Structure
@@ -13,6 +13,11 @@ ODFL_JMLR_Archive/
 │   │   └── <split>/<balance>/<clients>/
 │   │       └── <algo>_<dataset>_<split>_<balance>_<clients>/
 │   │           └── results/     # cluster_id_mapping.csv, metrics, generalizability
+├── datasets/                    # Dataset blueprints and translation files (see below)
+│   ├── <DATASET>/               # MNIST, FMNIST, CIFAR10, PATHMNIST, BLOODMNIST
+│   │   └── <split>/<balance>/<clients>/
+│   │       ├── <DATASET>_<clients>_dataset_blueprint.csv
+│   │       └── <DATASET>_<clients>_dataset_blueprinttranslation.txt
 ├── temperature_experiments/     # Temperature scheduling analysis inputs
 ├── explanations/                # XAI (INDE insertion/deletion) per experiment scenario
 │   └── experiment1[A|B|C]/<DATASET>/ #[A] - InCluster, [B] - OutofCluster, [C] - Orchestrator Distribution
@@ -25,6 +30,35 @@ ODFL_JMLR_Archive/
 ├── LICENSE
 └── README.md
 ```
+
+## Datasets Description
+
+The `datasets/` folder contains the blueprint files describing the client splits for each experiment scenario.  
+- **Blueprint CSVs** (`<DATASET>_<clients>_dataset_blueprint.csv`):  
+  Define the data allocation for each client under a given split type (nonoverlaping/overlaping) and balance (balanced/imbalanced).
+- **Translation TXT files** (`<DATASET>_<clients>_dataset_blueprinttranslation.txt`):  
+  Provide mapping or translation information for the blueprint, if applicable.
+
+**Structure Example:**
+```
+datasets/
+├── MNIST/
+│   └── nonoverlaping/
+│       └── balanced/
+│           └── 15/
+│               └── MNIST_15_dataset_blueprint.csv
+│               └── MNIST_15_dataset_blueprinttranslation.txt
+...
+├── CIFAR10/
+│   └── overlaping/
+│       └── imbalanced/
+│           └── 30/
+│               └── CIFAR10_30_dataset_blueprint.csv
+│               └── CIFAR10_30_dataset_blueprinttranslation.txt
+...
+```
+Each dataset (MNIST, FMNIST, CIFAR10, PATHMNIST, BLOODMNIST) is available under all split/balance/client scenarios.  
+Blueprint files are used to reproduce the exact client data splits for federated experiments.
 
 ## Naming Conventions
 
